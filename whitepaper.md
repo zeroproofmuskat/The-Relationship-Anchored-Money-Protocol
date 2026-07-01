@@ -340,23 +340,6 @@ A technical mechanism requires explanation: World ID generates a deterministic n
 
 The answer is a challenge-response mechanism. World ID's zero-knowledge proof binds not only the nullifier but also an arbitrary signal specified by the application. On each re-verification request, the system generates a random challenge with a short expiration window, typically one hour. The user must bring this challenge to an Orb, complete a live scan, and the Orb binds the challenge into the newly generated ZK proof as the signal.
 
-When the proof is submitted to the contract, the contract verifies that the signal matches the recently issued challenge and that the challenge has not expired. A stale proof binds a stale challenge; the signal mismatch causes verification to fail outright. This cryptographically guarantees that every successful re-verification corresponds to a living person completing a live scan at an Orb, in the present moment.
-
-World ID's on-chain verification contracts are openly deployed, publicly accessible infrastructure. Anyone can call them without any agreement with Tools for Humanity. And Tools for Humanity has strong commercial incentives to support and expand World ID's reach. The success of this system would elevate World ID from a tool for distinguishing humans from AI to the entry key of an economic system. A massive catalyst for their user growth and ecosystem value. The two parties' interests are naturally aligned.
-
-### 5.8 Immutability and Evolution
-
-All rules above are written in a single deployment into non-upgradeable smart contracts. The final step of deployment is to renounce all ownership privileges via renounceOwnership. Thereafter, the entire system becomes a frozen constant.
-
-The system deliberately includes no governance mechanism. No voting, no adjustable parameters, no modification interface. The reason: an adversary who wants the system dead, one whose core interests are threatened by its existence, would happily spend whatever it takes to buy enough votes to set the tax to zero and turn off UBI through a legitimate governance mechanism. Governance reduces "destroy the system" from a problem requiring breaking cryptography to a financial operation requiring buying votes. The safest approach is to leave no such door, freeze the system entirely, and the adversary finds no legitimate pathway to alter a frozen constant.
-
-How, then, does the system adapt? Adaptation occurs not within a single system but between system generations. This is an open protocol. Anyone can publish a new implementation. The community can self-organize migration, voting with their feet.
-
-In practice, a volunteer-organized foundation or development team can maintain the user interface and propose upgrades. When an upgrade is needed, the foundation deploys a new contract version, executes a state copy, and users see the specific changes in the foundation-maintained client. They voluntarily choose whether to migrate. Those who agree enter the new version; those who disagree remain on the old one.
-
-Old and new versions are separate contract deployments, unable to transact with each other. Economic activity stays in whichever version it inhabits. If the upgrade is sound, the vast majority migrates and the old version naturally dies. If the upgrade is unsound, attempting to weaken core rules, most people reject it, the proposal fails, and users vote with their feet.
-
-The foundation itself is contestable. The contract is fully open source. Anyone can build an alternative frontend, anyone can establish a competing foundation, propose a different upgrade path. The first volunteer foundation may simply be the most convenient entry point. If it does well, people follow; if not, it can be replaced at any time. Its credibility rests on a track record of faithful, beneficial upgrades, with no structural monopoly to protect it.
 
 ## Chapter 6: Collaboration Pools: A Unified Mechanism for Organization
 
